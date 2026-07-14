@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style id='brand'>:root{
+  --bg:#0b0b0c; --surface:#141417; --surface-2:#1c1c21;
+  --fg:#f5f5f7; --fg-muted:#a1a1aa; --border:#26262b;
+  --accent:#3b82f6; --accent-fg:#fff; --radius:14px; --maxw:1100px;
+  --font:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.hero{padding:140px 0 90px;text-align:center}
+h1{font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.01em}
+.muted{color:var(--fg-muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-fg);padding:14px 28px;border-radius:var(--radius);font-weight:600;text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease,opacity .15s ease}
+.btn:hover{transform:translateY(-2px);opacity:.92}
+.btn-ghost{background:transparent;color:var(--fg);border:1px solid var(--border)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+.grid{display:grid;gap:24px}
+@media(max-width:640px){.section{padding:64px 0}.hero{padding:96px 0 64px}}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hi Honey — Interiors That Feel Like Home</title>
+<style>
+  :root{
+    --accent: #c98a5e;
+    --accent-soft: #f3e3d6;
+    --ink: #2c221c;
+  }
+  body{
+    background:
+      radial-gradient(circle at 10% 0%, rgba(201,138,94,0.08), transparent 40%),
+      var(--bg);
+  }
+
+  /* ---------- HERO ---------- */
+  .honey-hero{
+    position:relative;
+    overflow:hidden;
+    padding-top:7rem;
+    padding-bottom:6rem;
+    text-align:center;
+    border-bottom:1px solid var(--border);
+  }
+  .honey-hero::before{
+    content:"";
+    position:absolute;
+    top:-30%;
+    left:50%;
+    width:900px;
+    height:900px;
+    transform:translateX(-50%);
+    background:radial-gradient(circle, var(--accent-soft) 0%, transparent 65%);
+    z-index:0;
+    opacity:.8;
+  }
+  .honey-hero .container{position:relative; z-index:1;}
+  .eyebrow{
+    display:inline-block;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    padding:.35rem .9rem;
+    border-radius:999px;
+    margin-bottom:1.5rem;
+    background:rgba(201,138,94,0.06);
+    opacity:0;
+    animation:riseIn .7s ease forwards;
+  }
+  .honey-hero h1{
+    font-size:clamp(2.4rem, 5vw, 4.2rem);
+    line-height:1.05;
+    margin:0 0 1.2rem;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    opacity:0;
+    animation:riseIn .8s ease forwards .12s;
+  }
+  .honey-hero h1 em{
+    font-style:italic;
+    color:var(--accent);
+    font-weight:500;
+  }
+  .honey-hero p.lead{
+    max-width:620px;
+    margin:0 auto 2.2rem;
+    font-size:1.15rem;
+    color:var(--fg-muted);
+    opacity:0;
+    animation:riseIn .8s ease forwards .24s;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:1rem;
+    justify-content:center;
+    flex-wrap:wrap;
+    opacity:0;
+    animation:riseIn .8s ease forwards .36s;
+  }
+  @keyframes riseIn{
+    from{opacity:0; transform:translateY(16px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  .hero-visual{
+    margin-top:3.5rem;
+    display:flex;
+    gap:1.2rem;
+    justify-content:center;
+    flex-wrap:wrap;
+    opacity:0;
+    animation:riseIn .9s ease forwards .5s;
+  }
+  .swatch{
+    width:110px; height:140px;
+    border-radius:var(--radius);
+    background:linear-gradient(160deg, var(--accent-soft), var(--accent));
+    box-shadow:0 12px 30px -12px rgba(0,0,0,.25);
+    transition:transform .4s ease;
+  }
+  .swatch:nth-child(2){background:linear-gradient(160deg, #ede4d3, #b98a56); transform:translateY(14px);}
+  .swatch:nth-child(3){background:linear-gradient(160deg, #f6ede1, #8a6a4f);}
+  .swatch:nth-child(4){background:linear-gradient(160deg, #efe0cc, #d9a25c); transform:translateY(10px);}
+  .swatch:hover{transform:translateY(-8px) scale(1.03);}
+
+  /* ---------- FEATURES ---------- */
+  .feat-grid .card{
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    border:1px solid var(--border);
+  }
+  .feat-grid .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px -20px rgba(0,0,0,.35);
+    border-color:var(--accent);
+  }
+  .feat-icon{
+    width:44px; height:44px;
+    border-radius:12px;
+    background:var(--accent-soft);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem;
+    margin-bottom:1rem;
+  }
+  .section-head{
+    text-align:center;
+    max-width:600px;
+    margin:0 auto 3rem;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom:.7rem;
+    font-weight:600;
+  }
+
+  /* ---------- PROCESS STRIP ---------- */
+  .process{
+    display:flex;
+    justify-content:space-between;
+    gap:1.5rem;
+    flex-wrap:wrap;
+    counter-reset:step;
+  }
+  .process .step{
+    flex:1 1 200px;
+    position:relative;
+    padding-top:2.5rem;
+  }
+  .process .step::before{
+    counter-increment:step;
+    content:"0" counter(step);
+    font-size:.85rem;
+    color:var(--accent);
+    letter-spacing:.08em;
+    position:absolute;
+    top:0; left:0;
+    font-weight:600;
+  }
+  .process .step h4{margin:0 0 .4rem; font-size:1.05rem;}
+  .process .step p{margin:0; color:var(--fg-muted); font-size:.92rem;}
+
+  /* ---------- PRICING ---------- */
+  .pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:1.5rem;
+  }
+  .price-card{
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:2.2rem 1.8rem;
+    background:var(--surface);
+    text-align:left;
+    position:relative;
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .price-card:hover{transform:translateY(-6px); box-shadow:0 18px 40px -20px rgba(0,0,0,.35);}
+  .price-card.featured{
+    border-color:var(--accent);
+    background:linear-gradient(160deg, var(--surface), var(--accent-soft) 220%);
+  }
+  .price-card .badge{
+    position:absolute; top:-12px; right:1.5rem;
+    background:var(--accent);
+    color:#fff;
+    font-size:.72rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:.3rem .7rem;
+    border-radius:999px;
+  }
+  .price-card .amount{
+    font-size:2.2rem;
+    font-weight:600;
+    margin:.6rem 0 .2rem;
+  }
+  .price-card .amount span{font-size:.95rem; color:var(--fg-muted); font-weight:400;}
+  .price-card ul{
+    list-style:none;
+    padding:0;
+    margin:1.4rem 0 1.8rem;
+  }
+  .price-card ul li{
+    padding:.4rem 0;
+    color:var(--fg-muted);
+    font-size:.92rem;
+    display:flex;
+    gap:.5rem;
+    align-items:flex-start;
+  }
+  .price-card ul li::before{content:"✓"; color:var(--accent); font-weight:700;}
+
+  /* ---------- FOOTER ---------- */
+  footer.site-footer{
+    border-top:1px solid var(--border);
+    padding:3rem 0 2rem;
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:2rem;
+    margin-bottom:2rem;
+  }
+  .footer-brand h3{
+    font-size:1.3rem;
+    margin:0 0 .5rem;
+  }
+  .footer-brand p{color:var(--fg-muted); max-width:280px; font-size:.92rem;}
+  .footer-cols{
+    display:flex;
+    gap:3rem;
+    flex-wrap:wrap;
+  }
+  .footer-cols div h5{
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--fg-muted);
+    margin-bottom:.8rem;
+  }
+  .footer-cols div a{
+    display:block;
+    color:var(--fg);
+    text-decoration:none;
+    font-size:.92rem;
+    padding:.28rem 0;
+    opacity:.85;
+    transition:opacity .2s ease, color .2s ease;
+  }
+  .footer-cols div a:hover{opacity:1; color:var(--accent);}
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:1rem;
+    padding-top:1.5rem;
+    border-top:1px solid var(--border);
+    font-size:.82rem;
+    color:var(--fg-muted);
+  }
+
+  /* reveal-on-scroll (default visible, JS only adds subtle motion) */
+  .reveal{opacity:1; transform:none;}
+  .reveal.pre{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.pre.in{opacity:1; transform:translateY(0);}
+
+  @media(max-width:640px){
+    .footer-grid{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header style="position:sticky; top:0; z-index:50; backdrop-filter:blur(10px); background:rgba(255,255,255,0.0); border-bottom:1px solid var(--border);">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; padding:1.1rem 1.5rem;">
+    <div style="font-weight:700; font-size:1.25rem; letter-spacing:-0.02em;">Hi Honey<span style="color:var(--accent);">.</span></div>
+    <nav style="display:flex; gap:2rem; align-items:center;">
+      <a href="#work" class="muted" style="text-decoration:none; font-size:.92rem;">Work</a>
+      <a href="#process" class="muted" style="text-decoration:none; font-size:.92rem;">Process</a>
+      <a href="#pricing" class="muted" style="text-decoration:none; font-size:.92rem;">Pricing</a>
+      <a href="#contact" class="btn" style="padding:.55rem 1.2rem; font-size:.9rem;">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<section class="honey-hero">
+  <div class="container">
+    <span class="eyebrow">Interior Design Studio · Est. for real homes</span>
+    <h1>Rooms that feel<br><em>sweet</em>, not staged.</h1>
+    <p class="lead">Hi Honey pairs your taste with a designer who actually shows up on site — full-service interiors for homes and boutique offices across Europe, from first sketch to last cushion.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn">Start your project</a>
+      <a href="#work" class="btn btn-ghost">See our work</a>
+    </div>
+    <div class="hero-visual">
+      <div class="swatch"></div>
+      <div class="swatch"></div>
+      <div class="swatch"></div>
+      <div class="swatch"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="container">
+    <div class="section-head reveal pre">
+      <h2>Designed to be lived in</h2>
+      <p class="muted">The interior design market is booming across Europe — we keep it personal, not corporate. Every project gets one lead designer, one clear plan, zero surprise invoices.</p>
+    </div>
+    <div class="grid feat-grid" style="grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem;">
+      <div class="card reveal pre">
+        <div class="feat-icon">🎨</div>
+        <h3>Concept to completion</h3>
+        <p class="muted">Mood boards, floor plans, materials and furniture sourcing — one team, one timeline, no handoffs.</p>
+      </div>
+      <div class="card reveal pre">
+        <div class="feat-icon">📐</div>
+        <h3>Space planning that works</h3>
+        <p class="muted">We measure twice, model in 3D, and make sure the sofa actually fits before it's ordered.</p>
+      </div>
+      <div class="card reveal pre">
+        <div class="feat-icon">🛋️</div>
+        <h3>Sourced, not generic</h3>
+        <p class="muted">Curated pieces from independent makers and trusted studios — nothing that looks like a catalogue.</p>
+      </div>
+      <div class="card reveal pre">
+        <div class="feat-icon">🏢</div>
+        <h3>Homes & boutique offices</h3>
+        <p class="muted">From cosy apartments to design-forward workspaces that make people want to come in.</p>
+      </div>
+      <div class="card reveal pre">
+        <div class="feat-icon">🧭</div>
+        <h3>On-site project management</h3>
+        <p class="muted">We coordinate contractors and delivery windows so you don't have to chase anyone.</p>
+      </div>
+      <div class="card reveal pre">
+        <div class="feat-icon">💛</div>
+        <h3>Honest budgets</h3>
+        <p class="muted">Fixed-fee packages, transparent sourcing costs, no markup mystery on furniture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-head reveal pre">
+      <h2>How a project unfolds</h2>
+      <p class="muted">Four stages, clear check-ins, no guesswork.</p>
+    </div>
+    <div class="process reveal pre">
+      <div class="step">
+        <h4>Discovery call</h4>
+        <p>We talk through your space, your life in it, and your budget honestly.</p>
+      </div>
+      <div class="step">
+        <h4>Concept & plan</h4>
+        <p>Mood boards, layouts and a fixed proposal you approve before anything is ordered.</p>
+      </div>
+      <div class="step">
+        <h4>Sourcing & build</h4>
+        <p>We manage suppliers, trades and timelines while you get on with life.</p>
+      </div>
+      <div class="step">
+        <h4>Reveal day</h4>
+        <p>Styled, photographed, handed over — with a little something sweet waiting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-head reveal pre">
+      <h2>Simple, fixed-fee packages</h2>
+      <p class="muted">Every studio, room or floor deserves a plan that's clear from day one.</p>
+    </div>
+    <div class="pricing-grid reveal pre">
+      <div class="price-card">
+        <h3>A Little Sweeter</h3>
+        <div class="amount">€2,400 <span>/ single room</span></div>
+        <ul>
+          <li>1 room, full concept & mood board</li>
+          <li>Floor plan & furniture layout</li>
+          <li>Curated sourcing list</li>
+          <li>2 rounds of revisions</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost" style="width:100%; text-align:center; display:block;">Get started</a>
+      </div>
+      <div class="price-card featured">
+        <span class="badge">Most loved</span>
+        <h3>Whole Home Honey</h3>
+        <div class="amount">€6,900 <span>/ full home</span></div>
+        <ul>
+          <li>Full home concept & 3D visuals</li>
+          <li>End-to-end sourcing & ordering</li>
+          <li>On-site project management</li>
+          <li>Styling & install day</li>
+          <li>3 rounds of revisions</li>
+        </ul>
+        <a href="#contact" class="btn" style="width:100%; text-align:center; display:block;">Get started</a>
+      </div>
+      <div class="price-card">
+        <h3>Studio & Office</h3>
+        <div class="amount">Custom</div>
+        <ul>
+          <li>Boutique office & commercial fit-outs</li>
+          <li>Brand-led interior direction</li>
+          <li>Vendor & contractor coordination</li>
+          <li>Scoped after a walkthrough</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost" style="width:100%; text-align:center; display:block;">Request a quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="text-align:center; padding-top:2rem;">
+  <div class="container reveal pre">
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-bottom:.8rem;">Ready to fall for your own home?</h2>
+    <p class="muted" style="max-width:480px; margin:0 auto 1.8rem;">Tell us about your space — we'll reply within two working days with next steps.</p>
+    <a href="#" class="btn" style="padding:.9rem 2rem; font-size:1rem;">Book your discovery call</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Hi Honey<span style="color:var(--accent);">.</span></h3>
+        <p>Interior design studio for homes and boutique offices across Europe. Warm rooms, clear budgets.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h5>Studio</h5>
+          <a href="#work">Our work</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div>
+          <h5>Get in touch</h5>
+          <a href="mailto:hello@hihoney.studio">hello@hihoney.studio</a>
+          <a href="#contact">Book a call</a>
+        </div>
+        <div>
+          <h5>Follow</h5>
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Hi Honey Studio. All rights reserved.</span>
+      <span>Designed with honey and good lighting.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Subtle scroll reveal — content is already visible by default (.reveal),
+  // JS only adds a gentle transition class for enhanced browsers.
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('pre'));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // subtle header shadow on scroll
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.style.boxShadow = '0 8px 24px -16px rgba(0,0,0,0.25)';
+      header.style.background = 'var(--bg)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
